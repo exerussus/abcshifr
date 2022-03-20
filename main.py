@@ -355,6 +355,7 @@ def main_menu():
         print('3. Очистка кэша')
         print('4. Генерация новых ключей')
         print('5. Сброс до стандартных ключей')
+        print('6. Экспот ключей')
         print('0. Выход')
         choise = input('Выберите действие: ')
         if choise == '1':
@@ -368,6 +369,8 @@ def main_menu():
         elif choise == '5':
             standart_keys()
             print(data_base['shifr'])
+        elif choise == '6':
+            export_cipher()
         elif choise == '0':
             exit(0)
         else:
@@ -375,7 +378,6 @@ def main_menu():
 
 
 def random_keys_generation():
-
     text = ''
     for i in data_base['shifr']:
 
@@ -405,6 +407,23 @@ def random_keys_generation():
 
 def standart_keys():
     data_base['shifr'] = data_base_standart['shifr']
+
+
+def export_cipher():
+    cipher_keys = ''
+    for i in data_base['shifr']:
+        cipher_keys = cipher_keys + data_base['shifr'][i] + '//'
+    print(cipher_keys)
+    actually_keys = open('actually_keys.txt', 'w+')
+    actually_keys.write(cipher_keys)
+    actually_keys.close()
+
+
+def import_cipher():
+    cipher_keys = input('Введите код ключей: ')
+    splited_keys = cipher_keys.split('//')
+    for i in data_base['shifr']:
+        data_base['shifr'][i] = splited_keys     # Доделать вставку значения в ключи по индексу списка splited_keys
 
 
 main_menu()
