@@ -323,7 +323,7 @@ def ciphering():
                 new_text = new_text + data_base['shifr'][i] + 'a'
     print(new_text)
     cipher_file = open('cipher_text.txt', 'w+')
-    cipher_file.write   (new_text)
+    cipher_file.write(new_text)
 
 
 def deciphering():
