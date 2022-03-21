@@ -419,11 +419,11 @@ def export_cipher():
     actually_keys.close()
 
 
-def import_cipher():
-    cipher_keys = input('Введите код ключей: ')
-    splited_keys = cipher_keys.split('//')
-    for i in data_base['shifr']:
-        data_base['shifr'][i] = splited_keys     # Доделать вставку значения в ключи по индексу списка splited_keys
-
+# def import_cipher():
+#     cipher_keys = input('Введите код ключей: ')
+#     splited_keys = cipher_keys.split('//')
+#     for i in data_base['shifr']:
+#         data_base['shifr'][i] = splited_keys     # Доделать вставку значения в ключи по индексу списка splited_keys
+#
 
 main_menu()
