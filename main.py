@@ -407,4 +407,14 @@ def standart_keys():
     data_base['shifr'] = data_base_standart['shifr']
 
 
+def export_cipher():
+    cipher_keys = ''
+    for i in data_base['shifr']:
+        cipher_keys = cipher_keys + data_base['shifr'][i] + '//'
+    print(cipher_keys)
+    actually_keys = open('actually_keys.txt', 'w+')
+    actually_keys.write(cipher_keys)
+    actually_keys.close()
+
+
 main_menu()
