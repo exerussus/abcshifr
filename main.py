@@ -349,7 +349,7 @@ def clear():
     cipher_file.close()
 
 
-def main_menu():
+def cipher_main_menu():
     while True:
         print(' ')
         print('*** Меню ***')
@@ -436,4 +436,4 @@ def import_cipher():
     print(splited_text)
 
 
-main_menu()
+cipher_main_menu()
