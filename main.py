@@ -339,12 +339,15 @@ def deciphering():
     decipher_file.write(new_text)
     decipher_file.close()
 
+
 def clear():
     decipher_file = open('decipher_text.txt', 'w+')
     decipher_file.write(' ')
+    decipher_file.close()
     cipher_file = open('cipher_text.txt', 'w+')
     cipher_file.write(' ')
     cipher_file.close()
+
 
 def main_menu():
     while True:
@@ -355,6 +358,8 @@ def main_menu():
         print('3. Очистка кэша')
         print('4. Генерация новых ключей')
         print('5. Сброс до стандартных ключей')
+        print('6. Импорт ключей')
+        print('7. Экспорт ключей')
         print('0. Выход')
         choise = input('Выберите действие: ')
         if choise == '1':
@@ -367,6 +372,11 @@ def main_menu():
             random_keys_generation()
         elif choise == '5':
             standart_keys()
+        elif choise == '6':
+            import_cipher()
+            print(data_base['shifr'])
+        elif choise == '7':
+            export_cipher()
             print(data_base['shifr'])
         elif choise == '0':
             exit(0)
@@ -378,7 +388,6 @@ def random_keys_generation():
 
     text = ''
     for i in data_base['shifr']:
-
         key = 1
         while key == 1:
             repited = 0
@@ -405,6 +414,26 @@ def random_keys_generation():
 
 def standart_keys():
     data_base['shifr'] = data_base_standart['shifr']
+
+
+def export_cipher():
+    cipher_keys = ''
+    for i in data_base['shifr']:
+        cipher_keys = cipher_keys + data_base['shifr'][i] + '//'
+    print(cipher_keys)
+    actually_keys = open('actually_keys.txt', 'w+')
+    actually_keys.write(cipher_keys)
+    actually_keys.close()
+
+
+def import_cipher():
+    a = -1
+    text = input('Введите ключи: ')
+    splited_text = text.split('//')
+    for i in data_base['shifr']:
+        a += 1
+        data_base['shifr'][i] = splited_text[a]
+    print(splited_text)
 
 
 main_menu()
