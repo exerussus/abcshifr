@@ -2,10 +2,6 @@ import random
 from Data import data_base, data_base_standart
 
 
-randchoise = random.choice(data_base['abc_and_numbers'])
-a = 'a'
-
-
 def ciphering():
     text = input('Введите текст: ')
     new_text = ''

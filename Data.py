@@ -1,3 +1,6 @@
+import random
+
+
 data_base_standart = {
     'shifr': {
         'а': 'frt0',  #
